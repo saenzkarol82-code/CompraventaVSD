@@ -9,20 +9,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class DataInitializer {
-     @Bean
-    public CommandLineRunner initDatabase(UsuarioRepository repo) {
-        return args -> {
-            if (repo.findByUserName("admin").isEmpty()) {
-                Usuario admin = new Usuario();
-                admin.setUserName("admin");
-                admin.setPassword(new BCryptPasswordEncoder().encode("123"));
-                admin.setRol("ADMIN");
-                repo.save(admin);
-                System.out.println("✅ Usuario admin creado con éxito");
-            } else {
-                System.out.println("ℹ️ Usuario admin ya existe");
-            }
-        };
-    }
+     //@Bean
+   // public CommandLineRunner initDatabase(UsuarioRepository repo) {
+       // return args -> {
+        //    if (repo.findByUserName("admin").isEmpty()) {
+         //       Usuario admin = new Usuario();
+          //      admin.setUserName("admin");
+           //     admin.setPassword(new BCryptPasswordEncoder().encode("123"));
+           //     admin.setRol("ADMIN");
+           //     repo.save(admin);
+           //     System.out.println("✅ Usuario admin creado con éxito");
+          //  } else {
+          //      System.out.println("ℹ️ Usuario admin ya existe");
+          //  }
+      //  };
+   // }
 }
 

@@ -18,10 +18,20 @@ public class UsuarioController {
     @Autowired
    // private UsuarioRepository repo;
 
-    @GetMapping("/")
-    public String redireccionRaiz() {
-        return "redirect:/login";
+   @GetMapping("/")
+    public String paginaPrincipal() {
+        return "index"; // esta será la vista general (index.html)
     }
+
+    @GetMapping("/inicio")
+    public String inicio() {
+        return "index"; // también puedes entrar desde /inicio
+    }
+
+    //@GetMapping("/")
+    //public String redireccionRaiz() {
+       // return "redirect:/login";
+    //}
 
     @GetMapping("/login")
     public String login() {
