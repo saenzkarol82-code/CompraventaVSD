@@ -2,7 +2,7 @@ package com.proyecto.AccesoUsuarios.controller;
 
 
 import com.proyecto.AccesoUsuarios.model.Usuario;
-//import com.proyecto.AccesoUsuarios.repository.UsuarioRepository;
+import com.proyecto.AccesoUsuarios.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,7 +16,7 @@ public class UsuarioController {
 
     
     @Autowired
-   // private UsuarioRepository repo;
+    private UsuarioRepository repo;
 
    @GetMapping("/")
     public String paginaPrincipal() {
@@ -37,18 +37,17 @@ public class UsuarioController {
     public String login() {
         return "login";
     }
-
-    @GetMapping("/home")
+    @GetMapping("/home") // Página Principal, Autorización Usuario Logueado! [ADMIN,USER]
     public String home(Model model, Authentication auth) {
         model.addAttribute("rol", auth.getAuthorities().toString());
         return "home";
     }
 
-  ////  @GetMapping("/usuarios")
-  //  public String listar(Model model) {
-    //    model.addAttribute("usuarios", repo.findAll());
-   //     return "usuarios";
-    // }
+    @GetMapping("/usuarios") // Autorización [ADMIN]
+    public String listar(Model model) {
+    model.addAttribute("usuarios", repo.findAll());
+       return "usuarios";
+    }
 
     @GetMapping("/usuarios/nuevo")
     public String nuevo(Model model) {
@@ -56,47 +55,46 @@ public class UsuarioController {
         return "form";
     }
 
-    //@PostMapping("/usuarios/guardar")
-    //public String guardar(@ModelAttribute Usuario usuario) {
-      //  usuario.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
-     //   repo.save(usuario);
-      //  return "redirect:/usuarios";
-    //}
+    @PostMapping("/usuarios/guardar")
+    public String guardar(@ModelAttribute Usuario usuario) {
+       usuario.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
+       repo.save(usuario);
+       return "redirect:/usuarios";
+    }
 
-  //  @GetMapping("/usuarios/editar/{id}")
-   // public String editar(@PathVariable Long id, Model model) {
-    //    model.addAttribute("usuario", repo.findById(id).orElseThrow());
-   //     return "form";
-    //}
+    @GetMapping("/usuarios/editar/{id}")
+    public String editar(@PathVariable Long id, Model model) {
+       model.addAttribute("usuario", repo.findById(id).orElseThrow());
+       return "form";
+    }
 
-   // @GetMapping("/usuarios/eliminar/{id}")
-    //public String eliminar(@PathVariable Long id) {
-    //    repo.deleteById(id);
-    //    return "redirect:/usuarios";
-    //}
+    @GetMapping("/usuarios/eliminar/{id}")
+    public String eliminar(@PathVariable Long id) {
+        repo.deleteById(id);
+       return "redirect:/usuarios";
+    }
 
-     // metodos para que el usuario normal "USER" pueda editar su perfil
-   // @GetMapping("/perfil")
-   // public String perfil(Model model, Authentication auth) {
-    //    String username = auth.getName(); // nombre de usuario autenticado
-   //     Usuario usuario = repo.findByUserName(username).orElseThrow();
-   //     model.addAttribute("usuario", usuario);
-    //    return "form";
-  //  }
+     //Autorización [USER]
+     
+     //metodos GET para que el usuario normal "USER" pueda editar su perfil
+    @GetMapping("/perfil")
+    public String perfil(Model model, Authentication auth) {
+       String username = auth.getName(); // nombre de usuario autenticado
+       Usuario usuario = repo.findByCorreoUsuario(username).orElseThrow();
+       model.addAttribute("usuario", usuario);
+       return "form";
+    }
+     //metodos POST
+     @PostMapping("/perfil/guardar")
+     public String guardarPerfil(@ModelAttribute Usuario usuario, Authentication auth) {
+        String username = auth.getName();
+        Usuario actual = repo.findByCorreoUsuario(username).orElseThrow();
 
-  //  @PostMapping("/perfil/guardar")
-    
-   // public String guardarPerfil(@ModelAttribute Usuario usuario, Authentication auth) {
-   //     String username = auth.getName();
-    //    Usuario actual = repo.findByUserName(username).orElseThrow();
+      actual.setCorreoUsuario(usuario.getCorreoUsuario());
+       actual.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
+       repo.save(actual);
+       return "redirect:/home?actualizado";
 
-   //     actual.setUserName(usuario.getUserName());
-     //   actual.setPassword(new BCryptPasswordEncoder().encode(usuario.getPassword()));
-    //    repo.save(actual); 
-      //  return "redirect:/home?actualizado";
-        
-    //}
+    }
 
 }
-
- 

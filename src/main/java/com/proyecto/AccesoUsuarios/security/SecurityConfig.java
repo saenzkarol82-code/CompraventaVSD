@@ -8,6 +8,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+//permisos de los usuarios
+
 @Configuration
 @EnableWebSecurity  // <- “Activa la configuración personalizada de seguridad web que yo voy a definir.”
 public class SecurityConfig {
