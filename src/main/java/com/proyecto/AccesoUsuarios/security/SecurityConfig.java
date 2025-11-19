@@ -18,7 +18,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers( "/", "/inicio","/login", "/css/**", "/js/**", "/img/**").permitAll()  //cualquier usuario sin autenticar
+                .requestMatchers( "/","/index", "/inicio","/login", "/css/**", "/js/**", "/img/**").permitAll()  //cualquier usuario sin autenticar
                 .requestMatchers("/usuarios/**").hasRole("ADMIN")  // rutas y subrutas, solo permitidas a Perfil ADMIN
                 .requestMatchers("/perfil/**").authenticated()    // rutas permitidas para usuarios autenticados : actualiza perfil usuario
                 .anyRequest().authenticated()
