@@ -17,12 +17,12 @@
             <th>Acciones</th>
         </tr>
         <tr th:each="u : ${usuarios}">
-            <td th:text="${u.id}"></td>
-            <td th:text="${u.userName}"></td>
+            <td th:text="${u.idUsuario}"></td>
+            <td th:text="${u.nombreUsuario}"></td>
             <td th:text="${u.rol}"></td>
             <td>
-                <a th:href="@{'/usuarios/editar/' + ${u.id}}">Editar</a>
-                <a th:href="@{'/usuarios/eliminar/' + ${u.id}}">Eliminar</a>
+                <a th:href="@{'/usuarios/editar/' + ${u.idUsuario}}">Editar</a>
+                <a th:href="@{'/usuarios/eliminar/' + ${u.idUsuario}}">Eliminar</a>
             </td>
         </tr>
     </table>

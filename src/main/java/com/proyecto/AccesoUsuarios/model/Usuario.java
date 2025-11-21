@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor; 
 
-@Entity
+@Entity 
 @Table(name = "usuario")
 @Data
 @AllArgsConstructor
@@ -40,7 +40,7 @@ public class Usuario {
     @Column(name = "telefonoUsuario", nullable = false)
     private Integer telefonoUsuario;
 
-    @Column(name = "correoUsuario", nullable = false, unique = true)
+    @Column(name = "correoUsuario", unique = true)
     private String correoUsuario;
 
     @Column(name = "contraseñaUsuario", nullable = false)
