@@ -49,11 +49,18 @@ public class UsuarioController {
        return "usuarios";
     }
 
+
     @GetMapping("/usuarios/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("usuario", new Usuario());
         return "form";
     }
+     
+    @GetMapping("/form")
+      public String mostrarFormularioRegistro() {
+     return "form"; // busca form.html en templates
+    }
+
 
     @PostMapping("/usuarios/guardar")
     public String guardar(@ModelAttribute Usuario usuario) {

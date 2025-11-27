@@ -1,0 +1,216 @@
+/* index estilo */
+
+
+:root {
+    
+  --color-principal: #626D7E; /* Squid Ink */
+  --color-secundario: #A78C7B; /* Pastel Brown */
+  --color-acento: #D9B382; /* Camel */
+  --color-suave: #B7C7D9; /* Powder Blue */
+  --color-fondo: #F3F1E7; /* Pearl */
+  --color-texto: #323c45; /* Space Cadet */
+}
+
+body {
+  margin: 0;
+  
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+   margin: 5px;
+    padding: 0px;
+}
+
+header {
+  background-color: var(--color-principal);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-align: center;
+  padding: 15px;
+
+}
+
+nav {
+  background-color: var(--color-principal);
+  border-radius: 12px; /* Bordes redondeados */
+  width: fit-content; /* Se ajusta al contenido */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 0.5rem 1rem; /* Espacio interno */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra opcional */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem; /* Espacio entre ítems */
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+nav li:hover {
+  background-color: var(--color-acento);
+}
+
+
+nav a {
+  color: #4C5C6B;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 1rem;
+  display: block; /* Permite centrar el texto verticalmente */
+}
+
+
+.intro {
+  background-color: var(--color-suave);
+  padding: 2rem;
+  text-align: center;
+}
+
+.vehiculos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.card {
+  background-color: var(--color-secundario);
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+button {
+  background-color: var(--color-acento);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #626D7E;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+p {
+  font: condensed 120% sans-serif;
+
+  
+}
+
+
+/* estilo login */
+
+body.login-page {
+
+  width: 100%;
+  padding: auto;        
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #F3F1E7 0%, #4C5C6B 100%);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-container {
+
+  background-color:  #8b99b0; /* Pearl */
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 280px;/* ancho del contenedor*/
+  margin: 4rem auto; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 6px 12px rgba(0, 0, 0, 0.08); /*sombra por fuera de la caja*/
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.login-container label {
+
+  display: block;
+  margin-top: 1rem;
+  color: #626D7E; /* Squid Ink */
+  font-weight: bold;
+}
+
+.login-container  {
+  
+  color: #2e363d; /* Space Cadet */
+  margin-bottom: 1rem;
+}
+
+
+
+.login-container input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid var(--color-fondo) ; /* Pastel Brown */
+  border-radius: 8px;
+}
+
+.login-container button {  /*boton de ingreso*/
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #D9B382; /* Camel */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.login-container button:hover {
+  background-color: #A78C7B; /* Pastel Brown */
+  transform: scale(1.03);
+}
+.registro {  /*boton de crear usuario   */
+  width: 200px;
+  margin: 0.8rem auto; /* centra horizontalmente */
+  padding: 0.6rem;
+  text-align: center;
+  background-color: #D9B382; /* Camel */
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform scale(1.05) ease;
+}
+
+.registro:hover {
+  background-color: #E58E2B; /* naranja cálido */
+  transform: scale(1.05); /* efecto de agrandamiento suave */
+}
+

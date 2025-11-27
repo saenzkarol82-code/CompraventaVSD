@@ -21,7 +21,7 @@ public class DataInitializer {
            admin.setNombreUsuario("Karol");
            admin.setApellidoUsuario("Saenz");
            admin.setTelefonoUsuario(302869303);
-           admin.setCorreoUsuario("adminkarol@correo.com");
+           admin.setCorreoUsuario("admin@correo.com");
            admin.setPassword(new BCryptPasswordEncoder().encode("123"));
            admin.setRol("ADMIN");
            usuarioRepo.save(admin);

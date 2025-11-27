@@ -17,7 +17,7 @@
 
         <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
             <label for="rol">Rol:</label>
-            <select th:field="*{rol}" id="rol">
+            <select th:field="*{rol}" id="rol"> 
                 <option value="ADMIN">ADMIN</option>
                 <option value="USER">USER</option>
             </select>
