@@ -50,6 +50,8 @@ public class UsuarioController {
        return "usuarios";
     }
 
+    
+
 
     @GetMapping("/usuarios/nuevo")
     public String nuevo(Model model) {
@@ -57,11 +59,11 @@ public class UsuarioController {
         return "form";
     }
 
-    @GetMapping("/registro")
-    public String showForm(Model model) {
-    model.addAttribute("usuario", new Usuario());
-    return "registro";
-    }
+    //@GetMapping("/registro")
+   // public String showForm(Model model) {
+   // model.addAttribute("usuario", new Usuario());
+   // return "registro";
+    //}
 
      
     @GetMapping("/form")
