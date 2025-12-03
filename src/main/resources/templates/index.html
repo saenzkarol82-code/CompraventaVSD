@@ -38,7 +38,7 @@
         </button>
       </form>
       <div class="d-flex" > <!-- -->
-       <a class="nav-link fw-bold ms-3" href="login.html">Iniciar sesión</a>
+       <a class="nav-link fw-bold ms-3" th:href="@{/login}">Iniciar sesión</a>
  
       </div>
     </div>
@@ -48,45 +48,184 @@
  <br>
  <br>
   <main>
-    <section>
+     <!-- Hero -->
+  <section class="hero">
+    <h1 class="display-4 fw-bold text-center">Elegancia sobre ruedas</h1>
+    <p class="lead text-center">Compra, vende y financia tu vehículo con confianza</p>
+  </section>
+  <!-- Servicios -->
+  <section id="servicios" class="py-5 section-servicios">
+    <div class="container">
+      <h2 class="section-title text-center">Nuestros Servicios</h2>
+      <br>
+      <br>
+      <div class="row g-4">
+        <div class="col-md-4">
+         <div class="card" style="width: 20rem;">
+         <img src="https://acnews.blob.core.windows.net/imgnews/large/NAZ_d39bd89b7cdd45ab8893c911aaa757c8.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">Compra</h5>
+          <p class="card-text">Encuentra el vehículo ideal con asesoría personalizada.</p>
+          <a href="comprar.html" class="btn btn-primary">Compra</a>
+        </div>
+      </div>
+        </div>
+       <div class="col-md-4">
+          <div class="card text-center" style="width: 20rem;">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.IwDY43m9O0u3eMs9nkTxvAHaE8?rs=1&pid=ImgDetMain&o=7&rm=3.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">Venta</h5>
+          <p class="card-text">Vende tu auto de forma rápida y segura.</p>
+          <a href="login.html" class="btn btn-primary">Ingresar</a>
+          </div>
+       </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-end" style="width: 20rem;">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.52QYOrsNwTtfUgnG48BjvgHaEK?w=1200&h=675&rs=1&pid=ImgDetMain&o=7&rm=3.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+         <h5 class="card-title">Financiación</h5>
+          <p class="card-text">Opciones flexibles para que tu compra sea más fácil.</p>
+          <a href="" class="btn btn-primary">Contactarnos</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="container text-center">
-
-        <p> Marcas preferenciales </p>
+  <!-- Marcas -->
+  <section id="vehiculos" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="section-title">Vehículos destacados</h2>
+    <br>
+    <br>
+    <!-- Carrusel Bootstrap -->
+    <div class="container text-center">
   <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
     <div class="col">
-      <div class="p-3" >AUDI</div>
+      <div class="p-3"><img src="https://logos-world.net/wp-content/uploads/2020/05/Toyota-Logo-2020-present-700x394.png" class="img-fluid logo-vehiculo" alt=""></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://purepng.com/public/uploads/large/purepng.com-renault-logorenaultgroupe-renaultautomobile-manufacturerrenault-automobilesrenault-logo-1701527610699tia4b.png" class="img-fluid logo-vehiculo"></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://listcarbrands.com/wp-content/uploads/2016/02/Chevrolet-Logo-2010.png" class="img-fluid logo-vehiculo" alt="" srcset=""></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://th.bing.com/th/id/R.3d685b91ed83b7c11ca2027742b82fcc?rik=hV7vpZoXqWk7Ww&pid=ImgRaw&r=0.png" class="img-fluid logo-vehiculo" alt=""></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://th.bing.com/th/id/R.24ad73b5ec25e6e78765a3c4f0757365?rik=E1ATdcD2rFTaeg&pid=ImgRaw&r=0.png" class="img-fluid logo-vehiculo">
+    </div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://th.bing.com/th/id/R.402264ce552e6f3d59d0277180f02198?rik=I%2fggqwSEnTelMw&pid=ImgRaw&r=0.png" class="img-fluid logo-vehiculo"></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://www.renderhub.com/creative-idea-studio/byd-logo-1/byd-logo-1-01.jpg" class="img-fluid logo-vehiculo"></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://th.bing.com/th/id/R.b21b3b376bf40c303117ae72bf0dfedd?rik=K7NLUtsUgi5buQ&pid=ImgRaw&r=0.png" class="img-fluid logo-vehiculo" alt=""></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://th.bing.com/th/id/R.68f3a87dd82844bb3d93a5327e5fb1cd?rik=36YHKU5GwYWS%2fA&pid=ImgRaw&r=0.png" class="img-fluid logo-vehiculo" alt=""></div>
     </div>
     <div class="col">
-      <div class="p-3">Row column</div>
+      <div class="p-3"><img src="https://cdn.freebiesupply.com/logos/large/2x/ford-6-logo-black-and-white.png" class="img-fluid logo-vehiculo"></div>
     </div>
   </div>
 </div>
-    </section>
+  </div>
+</section>
+
+
+  <!-- Opiniones -->
+  <section id="card" class="py-5 bg-light">
+  <div class="container  container-center text-center">
+    <h3 class="section-title mb-4">Historias de Usuarios</h3>
+
+    <div id="carouselHistorias" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Historia 1 -->
+        <div class="carousel-item active">
+          <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+              <figure>
+                <blockquote class="blockquote">
+                  <p>"Excelente atención y confianza en todo el proceso."</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  María G. en <cite title="Compra de vehículo">Compra de vehículo</cite>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historia 2 -->
+        <div class="carousel-item">
+          <div class="card mx-auto" style="max-width: 600px;">
+            
+            <div class="card-body">
+              <figure>
+                <blockquote class="blockquote">
+                  <p>"Vendí mi auto en menos de una semana."</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  Juan P. en <cite title="Venta de vehículo">Venta de vehículo</cite>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Historia 3 -->
+        <div class="carousel-item">
+          <div class="card mx-auto" style="max-width: 600px;">
+            <div class="card-body">
+              <figure>
+                <blockquote class="blockquote">
+                  <p>"La financiación fue clara y accesible."</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                  Laura R. en <cite title="Financiación">Financiación</cite>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controles -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselHistorias" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselHistorias" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselHistorias" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselHistorias" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselHistorias" data-bs-slide-to="2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+   
+       
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-light text-center">
+    <p>&copy; 2025 AutoElegance. Todos los derechos reservados.</p>
+  </footer>
   </main>
 </body>
 

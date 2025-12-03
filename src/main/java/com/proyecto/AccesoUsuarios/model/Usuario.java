@@ -43,7 +43,7 @@ public class Usuario {
     @Column(name = "correoUsuario", unique = true)
     private String correoUsuario;
 
-    @Column(name = "contraseñaUsuario", nullable = false)
+    @Column(name = "passwordUsuario", nullable = false)
     private String password;
 
     private String rol;

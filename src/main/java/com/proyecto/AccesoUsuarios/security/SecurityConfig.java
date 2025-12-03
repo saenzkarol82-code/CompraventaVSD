@@ -1,39 +1,58 @@
 package com.proyecto.AccesoUsuarios.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+
 //permisos de los usuarios
 
 @Configuration
-@EnableWebSecurity  // <- “Activa la configuración personalizada de seguridad web que yo voy a definir.”
+@EnableWebSecurity
 public class SecurityConfig {
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+            .authenticationProvider(authenticationProvider()) // 👈 REGISTRA EL PROVIDER CORRECTO
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers( "/","/index","/comprar","/login", "/css/**", "/js/**", "/img/**","/form").permitAll()  //cualquier usuario sin autenticar
-                .requestMatchers("/usuarios/**").hasRole("ADMIN")  // rutas y subrutas, solo permitidas a Perfil ADMIN
-                .requestMatchers("/perfil/**").authenticated()    // rutas permitidas para usuarios autenticados : actualiza perfil usuario
+                .requestMatchers("/", "/index", "/comprar", "/login", "/registro", "/registro/**", "/css/**", "/js/**", "/img/**", "/form").permitAll()
+                .requestMatchers("/usuarios/**").hasRole("ADMIN")
+                .requestMatchers("/perfil/**").authenticated()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                  .loginPage("/login")  // comportamiento del proceso de inicio de sesión
-                .defaultSuccessUrl("/home", true) //cuando el usuario se logea, se dirige al home.html
-                .permitAll()   //permitido a cualquier usuario
+                .loginPage("/login")
+                .usernameParameter("correoUsuario") // 👈 LOGIN CON CORREO
+                .passwordParameter("password")
+                .defaultSuccessUrl("/home", true)
+                .permitAll()
             )
             .logout(logout -> logout
                 .logoutSuccessUrl("/login?logout")
-                .permitAll() //permitido a cualquier usuario
+                .permitAll()
             );
-            
+
         return http.build();
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
     }
 
     @Bean
@@ -41,5 +60,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-

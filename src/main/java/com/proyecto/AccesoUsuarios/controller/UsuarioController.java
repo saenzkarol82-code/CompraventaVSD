@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 @Controller
 
 public class UsuarioController {
@@ -55,12 +56,20 @@ public class UsuarioController {
         model.addAttribute("usuario", new Usuario());
         return "form";
     }
+
+    @GetMapping("/registro")
+    public String showForm(Model model) {
+    model.addAttribute("usuario", new Usuario());
+    return "registro";
+    }
+
      
     @GetMapping("/form")
       public String mostrarFormularioRegistro() {
      return "form"; // busca form.html en templates
     }
 
+  
 
     @PostMapping("/usuarios/guardar")
     public String guardar(@ModelAttribute Usuario usuario) {
@@ -80,6 +89,9 @@ public class UsuarioController {
         repo.deleteById(id);
        return "redirect:/usuarios";
     }
+
+
+    
 
      //Autorización [USER]
      

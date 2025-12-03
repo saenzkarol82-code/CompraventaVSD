@@ -1,37 +1,44 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/src/main/resources/static/css/estilo.css">
 <head>
     <title>Usuarios</title>
+    <link rel="stylesheet" href="/css/estilo.css">
 </head>
 
-<body>
-    <h2>Lista de Usuarios</h2>
-    <a th:href="@{/usuarios/nuevo}">Nuevo Usuario</a>
-    <br><br>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Usuario</th>
-            <th>Rol</th>
-            <th>Acciones</th>
-        </tr>
-        <tr th:each="u : ${usuarios}">
-            <td th:text="${u.idUsuario}"></td>
-            <td th:text="${u.nombreUsuario}"></td>
-            <td th:text="${u.rol}"></td>
-            <td>
-                <a th:href="@{'/usuarios/editar/' + ${u.idUsuario}}">Editar</a>
-                <a th:href="@{'/usuarios/eliminar/' + ${u.idUsuario}}">Eliminar</a>
-            </td>
-        </tr>
-    </table>
+<body class="admin-page">
+    <nav class="navbar-admin px-3">
+        <a class="navbar-brand" href="home.html">Panel de Administración</a>
+    </nav>
 
-    <br>
-    <form th:action="@{/logout}" method="post">
-        <button type="submit">Cerrar sesión</button>
-    </form>
+    <main class="container py-4">
+        <h2 class="mb-3">Lista de Usuarios</h2>
+        <a th:href="@{/usuarios/nuevo}" class="btn-admin">+ Nuevo Usuario</a>
 
+        <table class="table-admin mt-3">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="u : ${usuarios}">
+                    <td th:text="${u.idUsuario}"></td>
+                    <td th:text="${u.nombreUsuario}"></td>
+                    <td th:text="${u.rol}"></td>
+                    <td>
+                        <a th:href="@{'/usuarios/editar/' + ${u.idUsuario}}">Editar</a>
+                        <a th:href="@{'/usuarios/eliminar/' + ${u.idUsuario}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form th:action="@{/logout}" method="post" class="mt-4">
+            <button type="submit" class="btn-admin">Cerrar sesión</button>
+        </form>
+    </main>
 </body>
-
 </html>

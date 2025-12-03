@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body class="admin-page">
+
+    <nav class="navbar-admin px-3">
+        <a class="navbar-brand" href="#">Panel de Administración</a>
+    </nav>
+
+    <main class="container py-4">
+        <h2 class="mb-3">Crear cuenta</h2>
+
+        <!-- Mensajes de éxito o error -->
+        <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+        <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+        <div class="card-centered card-admin p-4">
+            <form th:action="@{/registro/guardar}" th:object="${usuario}" method="post">
+                <input type="hidden" th:field="*{idUsuario}" />
+
+                <label for="documentoUsuario">Documento:</label>
+                <input type="text" th:field="*{documentoUsuario}" id="documentoUsuario" required />
+
+                <label for="nombreUsuario">Nombre:</label>
+                <input type="text" th:field="*{nombreUsuario}" id="nombreUsuario" required />
+
+                <label for="apellidoUsuario">Apellido:</label>
+                <input type="text" th:field="*{apellidoUsuario}" id="apellidoUsuario" required />
+
+                <label for="telefonoUsuario">Teléfono:</label>
+                <input type="number" th:field="*{telefonoUsuario}" id="telefonoUsuario" required />
+
+                <label for="correoUsuario">Correo:</label>
+                <input type="email" th:field="*{correoUsuario}" id="correoUsuario" required />
+
+                <label for="passwordUsuario">Contraseña:</label>
+                <input type="password" th:field="*{password}" id="password" required />
+
+                <button type="submit" class="btn-admin mt-3">Registrar</button>
+            </form>
+
+            <p class="mt-3">
+                <a th:href="@{/login}" class="btn-admin">Ya tengo cuenta</a>
+            </p>
+        </div>
+    </main>
+</body>
+</html>

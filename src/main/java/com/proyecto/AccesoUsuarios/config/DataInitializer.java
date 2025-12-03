@@ -15,13 +15,13 @@ public class DataInitializer {
      public CommandLineRunner initDatabase(UsuarioRepository usuarioRepo) {
      return args -> {
         // Usuario ADMIN
-        if (usuarioRepo.findByCorreoUsuario("admin@correo.com").isEmpty()) {
+        if (usuarioRepo.findByCorreoUsuario("karoladmin@gmail.com").isEmpty()) {
            Usuario admin = new Usuario();
            admin.setDocumentoUsuario("1000522375");
            admin.setNombreUsuario("Karol");
            admin.setApellidoUsuario("Saenz");
            admin.setTelefonoUsuario(302869303);
-           admin.setCorreoUsuario("admin@correo.com");
+           admin.setCorreoUsuario("karoladmin@gmail.com");
            admin.setPassword(new BCryptPasswordEncoder().encode("123"));
            admin.setRol("ADMIN");
            usuarioRepo.save(admin);
