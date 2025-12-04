@@ -37,8 +37,8 @@ public class Usuario {
     @Column(name = "apellidoUsuario", nullable = false)
     private String apellidoUsuario;
 
-    @Column(name = "telefonoUsuario", nullable = false)
-    private Integer telefonoUsuario;
+    @Column(name = "telefonoUsuario", nullable = false, length = 15)
+    private String telefonoUsuario;
 
     @Column(name = "correoUsuario", unique = true)
     private String correoUsuario;

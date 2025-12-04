@@ -123,7 +123,6 @@ p {
 /* estilo login */
 
 body.login-page {
-
   width: 100%;
   padding: auto;        
   min-height: 100vh;
@@ -194,6 +193,8 @@ body.login-page {
   background-color: var(--color-principal); /* Pastel Brown */
   transform: scale(1.03);
 }
+
+
 .registro {  /*boton de crear usuario   */
   width: 200px;
   margin: 0.8rem auto; /* centra horizontalmente */
@@ -368,4 +369,52 @@ body.admin-page {
   background-color: var(--color-suave);
   color: var(--color-principal);
 }
+
+/*estilo registro*/
+body.registro{
+   width: 100%;
+  padding: auto;        
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #F3F1E7 0%, #4C5C6B 100%);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.registro-container {
+
+  background-color:  #8b99b0; /* Pearl */
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 280px;/* ancho del contenedor*/
+  margin: 4rem auto; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 6px 12px rgba(0, 0, 0, 0.08); /*sombra por fuera de la caja*/
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registro-container:hover {
+
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.registro-container label {
+
+  display: block;
+  margin-top: 1rem;
+  color: #626D7E; /* Squid Ink */
+  font-weight: bold;
+}
+
+
+
+.registro-container input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #A78C7B ; /* Pastel Brown */
+  border-radius: 8px;
+}
+
 

@@ -92,9 +92,6 @@ public class UsuarioController {
        return "redirect:/usuarios";
     }
 
-
-    
-
      //Autorización [USER]
      
      //metodos GET para que el usuario normal "USER" pueda editar su perfil
@@ -105,6 +102,7 @@ public class UsuarioController {
        model.addAttribute("usuario", usuario);
        return "form";
     }
+    
      //metodos POST
      @PostMapping("/perfil/guardar")
      public String guardarPerfil(@ModelAttribute Usuario usuario, Authentication auth) {

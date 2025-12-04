@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Configuration  //comandLineRunner comoponente que se ejecuta automaticamente al arrancar la aplicacion.
+//@Configuration  //comandLineRunner comoponente que se ejecuta automaticamente al arrancar la aplicacion.
 public class DataInitializer {
      @Bean
      public CommandLineRunner initDatabase(UsuarioRepository usuarioRepo) {
@@ -20,7 +20,7 @@ public class DataInitializer {
            admin.setDocumentoUsuario("1000522375");
            admin.setNombreUsuario("Karol");
            admin.setApellidoUsuario("Saenz");
-           admin.setTelefonoUsuario(302869303);
+           admin.setTelefonoUsuario("302869303");
            admin.setCorreoUsuario("karoladmin@gmail.com");
            admin.setPassword(new BCryptPasswordEncoder().encode("123"));
            admin.setRol("ADMIN");
@@ -37,7 +37,7 @@ public class DataInitializer {
             cliente.setDocumentoUsuario("0002");
             cliente.setNombreUsuario("Cliente");
             cliente.setApellidoUsuario("Ejemplo");
-            cliente.setTelefonoUsuario(321987654);
+            cliente.setTelefonoUsuario("321987654");
             cliente.setCorreoUsuario("cliente@correo.com");
             cliente.setPassword(new BCryptPasswordEncoder().encode("123"));
             cliente.setRol("CLIENTE");
@@ -54,7 +54,7 @@ public class DataInitializer {
             vendedor.setDocumentoUsuario("0003");
             vendedor.setNombreUsuario("Vendedor");
             vendedor.setApellidoUsuario("Oficial");
-            vendedor.setTelefonoUsuario(301987654);
+            vendedor.setTelefonoUsuario("301987654");
             vendedor.setCorreoUsuario("vendedor@correo.com");
             vendedor.setPassword(new BCryptPasswordEncoder().encode("123"));
             vendedor.setRol("VENDEDOR");
